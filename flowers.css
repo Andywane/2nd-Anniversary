@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(#ffe1ef, #fff);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+.text-center {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+
+/* BACK BUTTON */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: #b3005a;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.7);
+  padding: 8px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* SCENE */
+.scene {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CAMERA ZOOM */
+.zoom-in {
+  animation: zoom 3s ease forwards;
+}
+
+@keyframes zoom {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+/* BOUQUET */
+.bouquet {
+  position: relative;
+  width: 380px;
+  height: 520px;
+  animation: sway 7s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* FLOWER */
+.flower {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform:
+    translateX(calc(var(--x) * 1px))
+    rotate(calc(var(--r) * 1deg));
+}
+
+/* STEM */
+.flower::before {
+  content: "";
+  position: absolute;
+  bottom: -160px;
+  left: 50%;
+  width: 5px;
+  height: 160px;
+  background: linear-gradient(#4f8a5b, #2e5f3a);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* 🌸 MULTI-LAYER PETALS */
+.flower::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd6ea 20%, #ff6fae 75%);
+  box-shadow:
+    -35px 0 0 #ff9fcf,
+    35px 0 0 #ff9fcf,
+    0 -35px 0 #ffb3d9,
+    -25px -25px 0 #ff82bc,
+    25px -25px 0 #ff82bc,
+    -15px -40px 0 #ffc1e1,
+    15px -40px 0 #ffc1e1;
+}
+
+/* MAIN FLOWER BIGGER */
+.flower.main::after {
+  width: 100px;
+  height: 100px;
+}
+
+/* NAME GLOW */
+.name {
+  margin-top: 20px;
+  font-size: 2.2rem;
+  color: #b3005a;
+  text-shadow:
+    0 0 6px rgba(255,105,180,0.6),
+    0 0 12px rgba(255,105,180,0.4);
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,100% { text-shadow: 0 0 6px #ff9fcf; }
+  50% { text-shadow: 0 0 16px #ff5fa2; }
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #7a003c;
+}
+
+/* SWAY */
+@keyframes sway {
+  0%,100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}

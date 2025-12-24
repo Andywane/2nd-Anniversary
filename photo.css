@@ -1,0 +1,42 @@
+body {
+  background: #f6f1ea;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 25px;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  transform: rotate(var(--r));
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.polaroid:nth-child(odd) { --r: -4deg; }
+.polaroid:nth-child(even) { --r: 3deg; }

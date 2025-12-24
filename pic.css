@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff5f7;
+  color: #333;
+}
+
+.landing, .options {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #c9184a;
+  margin-bottom: 15px;
+}
+
+.button-group {
+  display: flex;
+  gap: 25px;
+  margin-top: 20px;
+  
+}
+
+
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.yes { background: #c9184a; color: #fff; }
+.no { background: #ffd6e0; color: #c9184a; }
+
+.options h2 { margin-bottom: 40px; }
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.option {
+  background: white;
+  border-radius: 20px;
+  padding: 25px 10px;
+  font-size: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.option:hover { transform: scale(1.08); }
+
+.option span {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 90%;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.hidden { display: none; }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.btn:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+.option {
+  text-decoration: none;
+}
+.option:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+
+
+
